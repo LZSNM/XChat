@@ -218,8 +218,9 @@ registerBtn.addEventListener('click', () => {
     const username = document.getElementById('register-username').value;
     const password = document.getElementById('register-password').value;
     const confirmPassword = document.getElementById('register-confirm-password').value;
+    serverAddress = serverAddressInput.value.trim();
     
-    if (!username || !password || !confirmPassword) {
+    if (!username || !password || !confirmPassword || !serverAddress) {
         alert('请填写所有字段');
         return;
     }
