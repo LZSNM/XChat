@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线聊天系统</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <!-- 登录/注册界面 -->
+    <div id="auth-container">
+        <h2>在线聊天系统</h2>
+        <div class="auth-tabs">
+            <button class="tab-btn active" data-tab="login">登录</button>
+            <button class="tab-btn" data-tab="register">注册</button>
+        </div>
+        
+        <!-- 登录表单 -->
+        <div id="login-form" class="auth-form active">
+            <div class="form-group">
+                <label for="login-username">用户名</label>
+                <input type="text" id="login-username" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="login-password">密码</label>
+                <input type="password" id="login-password" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <label for="login-room">聊天房间</label>
+                <input type="text" id="login-room" placeholder="请输入房间名称">
+            </div>
+            <div class="form-group">
+                <label for="server-address">服务器地址</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="server-address" placeholder="例如: localhost:3000" value="localhost:3000">
+                    <button id="discover-server">自动发现</button>
+                </div>
+            </div>
+            <button id="login-btn">登录</button>
+        </div>
+        
+        <!-- 注册表单 -->
+        <div id="register-form" class="auth-form">
+            <div class="form-group">
+                <label for="register-username">用户名</label>
+                <input type="text" id="register-username" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="register-password">密码</label>
+                <input type="password" id="register-password" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <label for="register-confirm-password">确认密码</label>
+                <input type="password" id="register-confirm-password" placeholder="请确认密码">
+            </div>
+            <button id="register-btn">注册</button>
+        </div>
+    </div>
+
+    <!-- 聊天界面 -->
+    <div id="chat-container" style="display: none;">
+        <div class="chat-header">
+            <div class="header-left">
+                <button id="back-to-room" style="display: none;">返回房间</button>
+                <h3 id="chat-title">聊天房间: <span id="current-room"></span></h3>
+            </div>
+            <button id="logout-btn">退出</button>
+        </div>
+        <div class="chat-body">
+            <div class="user-list">
+                <h4>在线用户</h4>
+                <ul id="user-list">
+                    <!-- 用户列表将在这里显示 -->
+                </ul>
+                <h4>私聊</h4>
+                <ul id="private-chats">
+                    <!-- 私聊列表将在这里显示 -->
+                </ul>
+            </div>
+            <div class="chat-content">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- 消息将在这里显示 -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="输入消息...">
+                    <input type="file" id="file-input" style="display: none;">
+                    <button id="file-btn" title="发送文件">📎</button>
+                    <button id="send-btn">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
